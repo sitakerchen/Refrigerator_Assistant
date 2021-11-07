@@ -4,4 +4,4 @@
 
 
 this is a tool which written in python3. 
-UI is build with QT.
+UI is build with Tkinter.
