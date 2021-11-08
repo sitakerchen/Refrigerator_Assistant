@@ -3,6 +3,7 @@
 ## brief introduction
 
 This is a simple and crude tool use to arrange items in refrigerator.
+
 I write it just for fun when i stucked at home during the epidemic of coronal virus. 
 
 ## detail
@@ -10,8 +11,11 @@ I write it just for fun when i stucked at home during the epidemic of coronal vi
 ### build
 
 lauguage: python3 
+
 UI: Tkinter
+
 database: sqlite3
+
 dev-sys: MacOs 10.13
 
 ### function
