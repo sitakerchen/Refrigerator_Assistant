@@ -2,11 +2,11 @@ from tkinter import *
 import CLASS as cl
 import re
 
-
+        
 def menu(Foods):
     # Function
     def show_all():
-        text1 = Text(root)
+        text1.delete("1.0", "end")
         text1.tag_config('tag_1', backgroun='yellow', foreground='red')
         text1.tag_config('tag_2', foreground='red')
         text1.tag_config('tag_3', backgroun='black', foreground='white')
@@ -30,7 +30,7 @@ def menu(Foods):
         text1.pack()
 
     def show_byCategory():
-        text2 = Text(root)
+        text2.delete("1.0", "end")
         text2.tag_config('tag_1', backgroun='blue', foreground='yellow')
         text2.tag_config('tag_2', foreground='red')
         text2.tag_config('tag_3', backgroun='black', foreground='white')
@@ -141,21 +141,26 @@ def menu(Foods):
     # parameter
     animalfood, pureThermalFood, fruits_vegetables, cereals_tubers, beans_theirProducts = [], [], [], [], []
     ect = []
-    sort_category()
+    sort_category() # sort the all the item every time
 
     # main
-    root = Tk() # init Tk 
-    root.geometry('1000x800')
+    root = Tk() # create a window
+    root.geometry('1000x800') # set size
+    root.wm_title("refrigerator assitant")
     menubar = Menu(root)
     func_dict = {'00': show_all, '01': show_byCategory, '10': search_byName} # mapping string to method
 
     content = [['show all', 'show by category'], ['search by name']]
+
+    text1 = Text(root) # text box
+    text2 = Text(root) # text box
+    
     main = ['Show', 'Search'] # level 1 menu
     for i in range(len(main)):  # 0, 1
         filemenu = Menu(menubar, tearoff=0)
         for k in range(len(content[i])):  # 0 1 # 0
             filemenu.add_command(label=content[i][k], command=func_dict[str(i) + str(k)])
         menubar.add_cascade(label=main[i], menu=filemenu)
-
     root['menu'] = menubar
-    root.mainloop()
+
+    root.mainloop() # show the window
