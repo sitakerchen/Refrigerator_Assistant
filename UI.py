@@ -25,8 +25,8 @@ def menu(Foods):
             text1.insert('insert', '营养成分:', 'tag_4')
             text1.insert('insert', str(Foods[index].nutrient) + str('\n'), 'tag_2')
             text1.insert('insert', '种类:', 'tag_4')
-            match = re.search(r"<class 'CLASS.(.*)'>", str(type(Foods[index])))
-            text1.insert('insert', match.group(1) + '\t\t\n', 'tag_2')
+            match = re.search(r"<class 'CLASS.(.*)'>", str(type(Foods[index]))) # use the class name as the keyword 
+            text1.insert('insert', match.group(1) + '\t\t\n', 'tag_2') # return the first match one 
         text1.pack()
 
     def show_byCategory():
@@ -144,13 +144,13 @@ def menu(Foods):
     sort_category()
 
     # main
-    root = Tk()
+    root = Tk() # init Tk 
     root.geometry('1000x800')
     menubar = Menu(root)
-    func_dict = {'00': show_all, '01': show_byCategory, '10': search_byName}
+    func_dict = {'00': show_all, '01': show_byCategory, '10': search_byName} # mapping string to method
 
     content = [['show all', 'show by category'], ['search by name']]
-    main = ['Show', 'Search']
+    main = ['Show', 'Search'] # level 1 menu
     for i in range(len(main)):  # 0, 1
         filemenu = Menu(menubar, tearoff=0)
         for k in range(len(content[i])):  # 0 1 # 0
